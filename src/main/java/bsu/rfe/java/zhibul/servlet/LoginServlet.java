@@ -3,10 +3,10 @@ package bsu.rfe.java.zhibul.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import bsu.rfe.java.zhibul.entity.ChatUser;
 
@@ -28,6 +28,7 @@ public class LoginServlet extends ChatServlet {
 
     // Метод будет вызван при обращении к сервлету HTTP-методом GET
     // т.е. когда пользователь просто открывает адрес в браузере
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse
             response) throws ServletException, IOException {
 // Проверить, есть ли уже в сессии заданное имя пользователя?
@@ -78,10 +79,13 @@ public class LoginServlet extends ChatServlet {
                     "</font></p>");
         }
 // Вывести форму
-        pw.println("<form action='/chat/' method='post'>Введите имя: < input type = 'text'name = 'name'value = '' > < input type = 'submit' value = 'Войти в чат '>");
+        pw.println("<body> <form action='/labA8_war_exploded/chat/' method='post'>Enter the name:" +
+                "<input type='text' name = 'name' value = ''>" +
+                "<input type='submit' value='Log in'>");
         pw.println("</form></body></html>");
 // Сбросить сообщение об ошибке в сессии
         request.getSession().setAttribute("error", null);
+        pw.close();
     }
 
     // Метод будет вызван при обращении к сервлету HTTP-методом POST
@@ -108,7 +112,7 @@ public class LoginServlet extends ChatServlet {
 // Сохранить в сессии сообщение об ошибке
             request.getSession().setAttribute("error", errorMessage);
 // Переадресовать обратно на исходную страницу с формой
-            response.sendRedirect(response.encodeRedirectURL("/chat/"));
+            response.sendRedirect(response.encodeRedirectURL("/labA8_war_exploded/chat/"));
         }
     }
 
@@ -148,7 +152,7 @@ public class LoginServlet extends ChatServlet {
 // Добавить cookie в HTTP-ответ
             response.addCookie(sessionIdCookie);
 // Перейти к главному окну чата
-            response.sendRedirect(response.encodeRedirectURL("/chat/view.htm"));
+            response.sendRedirect(response.encodeRedirectURL("/labA8_war_exploded/chat/view.htm"));
 // Вернуть null, т.е. сообщений об ошибках нет
             return null;
         } else {

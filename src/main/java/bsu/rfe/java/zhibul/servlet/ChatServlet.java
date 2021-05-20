@@ -2,18 +2,21 @@ package bsu.rfe.java.zhibul.servlet;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.http.HttpServlet;
 import bsu.rfe.java.zhibul.entity.ChatMessage;
 import bsu.rfe.java.zhibul.entity.ChatUser;
+import jakarta.servlet.ServletException;
+
 public class ChatServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     // Карта текущих пользователей
     protected HashMap<String, ChatUser> activeUsers;
     // Список сообщений чата
     protected ArrayList<ChatMessage> messages;
+
     @SuppressWarnings("unchecked")
-    public void init() throws ServletException {
+    public void init() throws ServletException, ServletException {
 // Вызвать унаследованную от HttpServlet версию init()
         super.init();
 // Извлечь из контекста карту пользователей и список сообщений
