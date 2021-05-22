@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
+      <artifact name="labA8:war" />
       <artifact name="labA8:war exploded" />
     </artifacts-to-build>
   </component>
@@ -10,8 +11,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb5f26b-ca39-4be6-bbcf-a738f1ee0aab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/compose_message.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_4_0_1.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_servlet_jakarta_servlet_api_5_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_web_api_8_0_1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/labA8_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/labA8_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/labA8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/labA8.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
@@ -20,11 +22,10 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/LogoutServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/MessageListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/MessageListServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/NewMessageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/NewMessageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/UserListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/UserListServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/ViewServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/ViewServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/compose_message.htm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/compose_message.htm" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/view..html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/message.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +42,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="LogFilters">
     <option name="FILTER_ERRORS" value="false" />
@@ -69,7 +78,10 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Lab8" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -84,6 +96,7 @@
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 10.0.6" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.6" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
         <artifact name="labA8:war exploded">
           <settings>
@@ -166,6 +179,7 @@
       <method v="2">
         <option name="Make" enabled="true" />
         <option name="BuildArtifacts" enabled="true">
+          <artifact name="labA8:war" />
           <artifact name="labA8:war exploded" />
         </option>
       </method>
@@ -201,6 +215,8 @@
       <updated>1621439061802</updated>
       <workItem from="1621439063052" duration="1831000" />
       <workItem from="1621440927101" duration="6663000" />
+      <workItem from="1621532774035" duration="2713000" />
+      <workItem from="1621691565741" duration="400000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore added">
       <created>1621440478883</created>
@@ -209,7 +225,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621440478883</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="core code is ready&#10;making some fixes">
+      <created>1621532992334</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1621532992334</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,17 +240,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="gitignore added" />
-    <option name="LAST_COMMIT_MESSAGE" value="gitignore added" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/LoginServlet.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="core code is ready&#10;making some fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="core code is ready&#10;making some fixes" />
   </component>
 </project>
