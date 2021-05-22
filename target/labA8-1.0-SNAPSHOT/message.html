@@ -1,15 +1,20 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 5.01 Transitional//EN"
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
-<form action="/lab8/send_message.do" method="post">
+<form action="/labA8_war_exploded/send_message.do" method="post">
   Text message:
   <input type="text" name="message" style="width: 50%">
-  <input type="submit" value="Отправить">
-  <a href="/lab8/logout.do" target="_top">Logout</a>
+  <input type="submit" value="Send">
+  <a href="/labA8_war_exploded/logout.do" target="_top">Logout</a>
+</form>
+<br>
+<form action="/labA8_war_exploded/set_timeout.do" method="post">
+  Clear chat every <input type="number" value="60" name="timeout" style="width: 30px"> sec
+  <button type="submit">Submit settings</button>
 </form>
 </body>
 </html>

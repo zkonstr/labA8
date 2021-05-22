@@ -8,6 +8,17 @@ public class ChatUser {
     private long lastInteractionTime;
     // Идентификатор Java-сессии пользователя
     private String sessionId;
+
+    public long getTimeout() {
+        return timeout;
+    }
+
+    public void setTimeout(long timeout) {
+        this.timeout = timeout;
+    }
+
+    private long timeout = 60;
+
     public ChatUser(String name,long lastInteractionTime,String sessionId) {
         super();
         this.name = name;

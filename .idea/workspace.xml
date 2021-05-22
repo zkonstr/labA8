@@ -11,21 +11,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ecb5f26b-ca39-4be6-bbcf-a738f1ee0aab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_servlet_jakarta_servlet_api_5_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_javaee_web_api_8_0_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/labA8_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/labA8_war_exploded.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/labA8.iml" beforeDir="false" afterPath="$PROJECT_DIR$/labA8.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/entity/ChatUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/entity/ChatUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/ChatServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/ChatServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/LoginServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/LoginServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/LogoutServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/LogoutServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/MessageListServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/MessageListServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/NewMessageServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/NewMessageServlet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/compose_message.htm" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/compose_message.htm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/compose_message.htm" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/message.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/message.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/entity/ChatUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/entity/ChatUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/servlet/ChatServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/servlet/ChatServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/servlet/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/servlet/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/servlet/LogoutServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/servlet/LogoutServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/servlet/MessageListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/servlet/MessageListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/servlet/NewMessageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/bsu/rfe/java/zhibul/servlet/NewMessageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/entity/ChatUser.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/entity/ChatUser.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/servlet/ChatServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/servlet/ChatServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/servlet/LoginServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/servlet/LoginServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/servlet/LogoutServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/servlet/LogoutServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/servlet/MessageListServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/servlet/MessageListServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/servlet/NewMessageServlet.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/classes/bsu/rfe/java/zhibul/servlet/NewMessageServlet.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/compose_message.htm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/message.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/message.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/labA8-1.0-SNAPSHOT/view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,8 +49,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -78,10 +92,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Lab8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="File.Encoding" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -95,6 +110,17 @@
     </key>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Tomcat 10.0.6" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.6" ALTERNATIVE_JRE_ENABLED="false">
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -217,6 +243,7 @@
       <workItem from="1621440927101" duration="6663000" />
       <workItem from="1621532774035" duration="2713000" />
       <workItem from="1621691565741" duration="400000" />
+      <workItem from="1621694324649" duration="4249000" />
     </task>
     <task id="LOCAL-00001" summary="gitignore added">
       <created>1621440478883</created>
@@ -242,5 +269,26 @@
     <MESSAGE value="gitignore added" />
     <MESSAGE value="core code is ready&#10;making some fixes" />
     <option name="LAST_COMMIT_MESSAGE" value="core code is ready&#10;making some fixes" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/TimerServlet.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/LoginServlet.java</url>
+          <line>118</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/bsu/rfe/java/zhibul/servlet/LoginServlet.java</url>
+          <line>116</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

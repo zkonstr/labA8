@@ -56,5 +56,15 @@
         <servlet-name>NewMessageServlet</servlet-name>
         <url-pattern>/send_message.do</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <description></description>
+        <display-name>TimerServlet</display-name>
+        <servlet-name>TimerServlet</servlet-name>
+        <servlet-class>bsu.rfe.java.zhibul.servlet.TimerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TimerServlet</servlet-name>
+        <url-pattern>/set_timeout.do</url-pattern>
+    </servlet-mapping>
 
 </web-app>

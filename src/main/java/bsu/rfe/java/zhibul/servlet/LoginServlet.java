@@ -3,6 +3,7 @@ package bsu.rfe.java.zhibul.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Calendar;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.Cookie;
@@ -10,18 +11,19 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import bsu.rfe.java.zhibul.entity.ChatUser;
-/*
+
+@WebServlet(name = "LoginServlet")
 public class LoginServlet extends ChatServlet {
     private static final long serialVersionUID = 1L;
     // Длительность сессии, в секундах
     private int sessionTimeout = 10 * 60;
+    int count;
 
     public void init() throws ServletException {
         super.init();
-// Прочитать из конфигурации значение параметра SESSION_TIMEOUT
-        String value =
-                getServletConfig().getInitParameter("SESSION_TIMEOUT");
-// Если он задан, переопределить длительность сессии по умолчанию
+        // Прочитать из конфигурации значение параметра SESSION_TIMEOUT
+        String value = getServletConfig().getInitParameter("SESSION_TIMEOUT");
+        // Если он задан, переопределить длительность сессии по умолчанию
         if (value != null) {
             sessionTimeout = Integer.parseInt(value);
         }
@@ -29,168 +31,16 @@ public class LoginServlet extends ChatServlet {
 
     // Метод будет вызван при обращении к сервлету HTTP-методом GET
     // т.е. когда пользователь просто открывает адрес в браузере
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse
-            response) throws ServletException, IOException {
-// Проверить, есть ли уже в сессии заданное имя пользователя?
-        String name = (String) request.getSession().getAttribute("name");
-// Извлечь из сессии сведения о предыдущей ошибке (возможной)
-        String errorMessage =
-                (String) request.getSession().getAttribute("error");
-// Идентификатор предыдущей сессии изначально пуст
-        String previousSessionId = null;
-// Если в сессии имя не сохранено, то попытаться
-// восстановить имя через cookie
-        if (name == null) {
-            // Найти cookie с именем sessionId
-            for (Cookie aCookie : request.getCookies()) {
-                if (aCookie.getName().equals("sessionId")) {
-// Запомнить значение этого cookie –
-// это старый идентификатор сессии
-                    previousSessionId = aCookie.getValue();
-                    break;
-                }
-            }
-            if (previousSessionId != null) {
-// Мы нашли session cookie
-// Попытаться найти пользователя с таким sessionId
-                for (ChatUser aUser : activeUsers.values()) {
-                    if
-                    (aUser.getSessionId().equals(previousSessionId)) {
-// Мы нашли такого, т.е. восстановили имя
-                        name = aUser.getName();
-                        aUser.setSessionId(request.getSession().getId());//////////////////////////////////////
-                    }
-                }
-            }
-        }
-        // Если в сессии имеется не пустое имя пользователя, то...
-        if (name != null && !"".equals(name)) {
-            errorMessage = processLogonAttempt(name, request, response);
-        }
-// Пользователю необходимо ввести имя. Показать форму
-// Задать кодировку HTTP-ответа
-        response.setCharacterEncoding("utf8");
-// Получить поток вывода для HTTP-ответа
-        PrintWriter pw = response.getWriter();
-        pw.println("<html><head><title>Мега-чат!</title><meta httpequiv='Content-Type' content='text/html; charset=utf-8'/></head>");
-// Если возникла ошибка - сообщить о ней
-        if (errorMessage != null) {
-            pw.println("<p><font color='red'>" + errorMessage +
-                    "</font></p>");
-        }
-// Вывести форму
-        pw.println("<body> <form action='/labA8_war_exploded/chat/' method='post'>Enter the name:" +
-                "<input type='text' name = 'name' value = ''>" +
-                "<input type='submit' value='Log in'>");
-        pw.println("</form></body></html>");
-// Сбросить сообщение об ошибке в сессии
-        request.getSession().setAttribute("error", null);
-        pw.close();
-    }
-
-    // Метод будет вызван при обращении к сервлету HTTP-методом POST
-// т.е. когда пользователь отправляет сервлету данные
-    protected void doPost(HttpServletRequest request, HttpServletResponse
-            response) throws ServletException, IOException {
-// Задать кодировку HTTP-запроса - очень важно!
-// Иначе вместо символов будет абракадабра
-        request.setCharacterEncoding("UTF-8");
-// Извлечь из HTTP-запроса значение параметра 'name'
-        String name = (String) request.getParameter("name");
-// Полагаем, что изначально ошибок нет
-        String errorMessage = null;
-        if (name == null || "".equals(name)) {
-// Пустое имя недопустимо - сообщить об ошибке
-            errorMessage = "Имя пользователя не может быть пустым!";
-        } else {
-// Если ия не пустое, то попытаться обработать запрос
-            errorMessage = processLogonAttempt(name, request, response);
-        }
-        if (errorMessage != null) {
-// Сбросить имя пользователя в сессии
-            request.getSession().setAttribute("name", null);
-// Сохранить в сессии сообщение об ошибке
-            request.getSession().setAttribute("error", errorMessage);
-// Переадресовать обратно на исходную страницу с формой
-            response.sendRedirect(response.encodeRedirectURL("/labA8_war_exploded/chat/"));
-        }
-    }
-
-    // Возвращает текстовое описание возникшей ошибки или null
-    String processLogonAttempt(String name, HttpServletRequest request,
-                               HttpServletResponse response) throws IOException {
-// Определить идентификатор Java-сессии пользователя
-        String sessionId = request.getSession().getId();
-// Извлечь из списка объект, связанный с этим именем
-        ChatUser aUser = activeUsers.get(name);
-        if (aUser == null) {
-// Если оно свободно, то добавить
-// нового пользователя в список активных
-            aUser = new ChatUser(name,
-                    Calendar.getInstance().getTimeInMillis(), sessionId);
-// Так как одновременно выполняются запросы
-// от множества пользователей
-// то необходима синхронизация на ресурсе
-            synchronized (activeUsers) {
-                activeUsers.put(aUser.getName(), aUser);
-            }
-        }
-        if (aUser.getSessionId().equals(sessionId) ||
-                aUser.getLastInteractionTime() < (Calendar.getInstance().getTimeInMillis() -
-                        sessionTimeout * 1000)) {
-// Если указанное имя принадлежит текущему пользователю,
-// либо оно принадлежало кому-то другому, но сессия истекла,
-// то одобрить запрос пользователя на это имя
-// Обновить имя пользователя в сессии
-            request.getSession().setAttribute("name", name);
-// Обновить время взаимодействия пользователя с сервером
-            aUser.setLastInteractionTime(Calendar.getInstance().getTimeInMillis());
-// Обновить идентификатор сессии пользователя в cookies
-            Cookie sessionIdCookie = new Cookie("sessionId", sessionId);
-// Установить срок годности cookie 1 год
-            sessionIdCookie.setMaxAge(60 * 60 * 24 * 365);
-// Добавить cookie в HTTP-ответ
-            response.addCookie(sessionIdCookie);
-// Перейти к главному окну чата
-            response.sendRedirect(response.encodeRedirectURL("/labA8_war_exploded/chat/view.htm"));
-// Вернуть null, т.е. сообщений об ошибках нет
-            return null;
-        } else {
-// Сохранѐнное в сессии имя уже закреплено за кем-то другим.
-// Извиниться, отказать и попросить ввести другое имя
-            return "Извините, но имя <strong>" + name + "</strong> уже кем - то занято.Пожалуйста выберите другое имя !";
-        }
-    }
-}
-*/
-@WebServlet(name="LoginServlet")
-public class LoginServlet extends ChatServlet {
-    private static final long serialVersionUID = 1L;
-    // Длительность сессии, в секундах
-    private int sessionTimeout = 10*60;
-    int count;
-    public void init() throws ServletException {
-        super.init();
-        // Прочитать из конфигурации значение параметра SESSION_TIMEOUT
-        String value = getServletConfig().getInitParameter("SESSION_TIMEOUT");
-        // Если он задан, переопределить длительность сессии по умолчанию
-        if (value!=null) {
-            sessionTimeout = Integer.parseInt(value);
-        }
-    }
-    // Метод будет вызван при обращении к сервлету HTTP-методом GET
-    // т.е. когда пользователь просто открывает адрес в браузере
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         // Проверить, есть ли уже в сессии заданное имя пользователя?
-        String name = (String)request.getSession().getAttribute("name");
+        String name = (String) request.getSession().getAttribute("name");
         // Извлечь из сессии сведения о предыдущей ошибке (возможной)
-        String errorMessage = (String)request.getSession().getAttribute("error");
+        String errorMessage = (String) request.getSession().getAttribute("error");
         // Идентификатор предыдущей сессии изначально пуст
         String previousSessionId = null;
         // Если в сессии имя не сохранено, то попытаться
 // восстановить имя через cookie
-        if (name==null) {
+        if (name == null) {
             try {
                 // Найти cookie с именем sessionId
                 for (Cookie aCookie : request.getCookies()) {
@@ -199,13 +49,13 @@ public class LoginServlet extends ChatServlet {
                         break;
                     }
                 }
-            }catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 name = null;
             }
-            if (previousSessionId!=null) {
+            if (previousSessionId != null) {
                 // Мы нашли session cookie
 // Попытаться найти пользователя с таким sessionId
-                for (ChatUser aUser: activeUsers.values()) {
+                for (ChatUser aUser : activeUsers.values()) {
                     if
                     (aUser.getSessionId().equals(previousSessionId)) {
                         name = aUser.getName();
@@ -215,7 +65,7 @@ public class LoginServlet extends ChatServlet {
             }
         }
 // Если в сессии имеется не пустое имя пользователя, то...
-        if (name!=null && !"".equals(name)) {
+        if (name != null && !"".equals(name)) {
             errorMessage = processLogonAttempt(name, request, response);
         }
 // Пользователю необходимо ввести имя. Показать форму
@@ -223,17 +73,19 @@ public class LoginServlet extends ChatServlet {
         response.setCharacterEncoding("UTF-8");
         // Получить поток вывода для HTTP-ответа
         PrintWriter pw = response.getWriter();
-        pw.println("<html><head><title>Meгa-чaт!</title><meta httpequiv='Content-Type' content='text/html; charset=utf-8'/></head>");
+        pw.println("<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n" +
+                "    <title>Мега-чат</title></head>");
         // Если возникла ошибка - сообщить о ней
-        if (errorMessage!=null) {
+        if (errorMessage != null) {
             pw.println("<p><font color='red'>" + errorMessage + "</font></p>");
         }
         // Вывести форму
-        pw.println("<form action='/lab8/' method='post'>Enter the name: <input type='text' name='name' value=''><input type='submit' value='Connect to the chat'>");
+        pw.println("<form action='/labA8_war_exploded/' method='post'>Enter the name: <input type='text' name='name' value=''><input type='submit' value='Connect to the chat'>");
         pw.println("</form></body></html>");
         // Сбросить сообщение об ошибке в сессии
         request.getSession().setAttribute("error", null);
     }
+
     // Метод будет вызван при обращении к сервлету HTTP-методом POST
 // т.е. когда пользователь отправляет сервлету данные
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -241,36 +93,36 @@ public class LoginServlet extends ChatServlet {
 // Иначе вместо символов будет абракадабра
         request.setCharacterEncoding("UTF-8");
         // Извлечь из HTTP-запроса значение параметра 'name'
-        String name = (String)request.getParameter("name");
+        String name = (String) request.getParameter("name");
         String errorMessage = null;
-        if (name==null || "".equals(name)) {
+        if (name == null || "".equals(name)) {
             errorMessage = "Name cannot be empty!";
-        }  else  if(count == 3) {
+        } else if (count == 3) {
             errorMessage = "number of users exceeded!";
-        }  else {
+        } else {
             errorMessage = processLogonAttempt(name, request, response);
         }
-        if (errorMessage!=null) {
+        if (errorMessage != null) {
             request.getSession().setAttribute("name", null);
             request.getSession().setAttribute("error", errorMessage);
-            response.sendRedirect(response.encodeRedirectURL("/lab8/"));
+            response.sendRedirect(response.encodeRedirectURL("/labA8_war_exploded/"));
         }
     }
+
     // Возвращает текстовое описание возникшей ошибки или null
     String processLogonAttempt(String name, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String sessionId = request.getSession().getId();
         ChatUser aUser = activeUsers.get(name);
-        if (aUser==null) {
+        if (aUser == null) {
             aUser = new ChatUser(name, Calendar.getInstance().getTimeInMillis(), sessionId);
             synchronized (activeUsers) {
                 activeUsers.put(aUser.getName(), aUser);
             }
         }
-        count ++;
+        count++;
 
 
-
-        if (aUser.getSessionId().equals(sessionId) || aUser.getLastInteractionTime()<(Calendar.getInstance().getTimeInMillis()- sessionTimeout*1000)) {
+        if (aUser.getSessionId().equals(sessionId) || aUser.getLastInteractionTime() < (Calendar.getInstance().getTimeInMillis() - sessionTimeout * 1000L)) {
             // Если указанное имя принадлежит текущему пользователю,
 // либо оно принадлежало кому-то другому, но сессия истекла,
 // то одобрить запрос пользователя на это имя
@@ -278,12 +130,14 @@ public class LoginServlet extends ChatServlet {
             request.getSession().setAttribute("name", name);
             aUser.setLastInteractionTime(Calendar.getInstance().getTimeInMillis());
             Cookie sessionIdCookie = new Cookie("sessionId", sessionId);
-            sessionIdCookie.setMaxAge(60*60*24*365);
+            sessionIdCookie.setMaxAge(60 * 60 * 24 * 365);
             response.addCookie(sessionIdCookie);
-            response.sendRedirect(response.encodeRedirectURL("/lab8/view.html"));
+            response.sendRedirect(response.encodeRedirectURL("/labA8_war_exploded/view.html"));
             return null;
         } else {
             return "Sorry, <strong>" + name + "</strong> is engaged. Please try another one!";
         }
     }
 }
+
+//"<html><head><title>Мега-чат</title><meta httpequiv='Content-Type' content='text/html; charset=utf-8'/></head>"
